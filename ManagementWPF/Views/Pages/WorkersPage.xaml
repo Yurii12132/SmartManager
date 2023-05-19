@@ -1,0 +1,743 @@
+﻿<Page x:Class="ManagementWPF.Views.Pages.WorkersPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:vm="clr-namespace:ManagementWPF.ViewModels" xmlns:local1="clr-namespace:ManagementWPF.CustomControl"
+      d:DataContext="{d:DesignInstance Type=vm:WorkersPageViewModel}"
+      mc:Ignorable="d" 
+      d:DesignHeight="520" d:DesignWidth="940"
+      Title="WorkersPage"
+      Style="{StaticResource GlobalPageStyle}">
+
+    <Page.DataContext>
+        <vm:WorkersPageViewModel/>
+    </Page.DataContext>
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding OnLoaded}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <!--Button BackPage-->
+            <Border Grid.Row="0"
+                    Width="30"
+                    Height="30"
+                    HorizontalAlignment="Left"
+                    CornerRadius="50"
+                    Background="Transparent"
+                    Visibility="{Binding AddWorkerVisibility}"
+                    Cursor="Hand">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseDown">
+                        <i:InvokeCommandAction Command="{Binding BackPage}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <Path Grid.Row="0"
+                  Name="buttonBackPage"
+                  Data="M2,12A10,10 0 0,1 12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12M18,11H10L13.5,7.5L12.08,6.08L6.16,12L12.08,17.92L13.5,16.5L10,13H18V11Z"
+                  Fill="AliceBlue"
+                  Stretch="Fill">
+                </Path>
+                <Border.Triggers>
+                    <EventTrigger RoutedEvent="MouseEnter">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ColorAnimation To="#31A3ED" Duration="0:0:0.20" Storyboard.TargetName="buttonBackPage" Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Color)"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="MouseLeave">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ColorAnimation To="White" Duration="0:0:0.15" Storyboard.TargetName="buttonBackPage" Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Color)"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Border.Triggers>
+            </Border>
+
+            <Grid Visibility="{Binding WorkersPanelVisibility}" HorizontalAlignment="Left" Margin="10,0,0,0">
+                <Button Command="{Binding AddWorker}" Background="White" Foreground="Black">
+                    Додати працівника
+                </Button>
+            </Grid>
+
+            <Grid HorizontalAlignment="Center" Visibility="{Binding WorkersPanelVisibility}">
+                <StackPanel Orientation="Horizontal" Margin="-40,10,0,0">
+                    <TextBlock Text="Кількість працівників: " FontWeight="Black"  FontSize="16" Foreground="White"/>
+                    <TextBlock Text="{Binding WorkerCards.Count}"  FontWeight="Black" FontSize="16" Foreground="White"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+        <Grid HorizontalAlignment="Stretch" Grid.Row="1">
+            <Grid Opacity="{Binding OpacityPage}"
+               Visibility="{Binding WorkersPanelVisibility}">
+
+                <ListView
+                    SelectionMode="Single"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                  Background="Transparent"
+                  BorderBrush="Transparent"
+                  HorizontalContentAlignment="Stretch"
+                  ItemsSource="{Binding WorkerCards}"
+                  >
+
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="Margin" Value="10"/>
+                            <Setter Property="Padding" Value="0"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True" >
+                                    <Setter Property="Background" Value="Transparent" />
+                                </Trigger>
+                            </Style.Triggers>
+                            <Style.Resources>
+                                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent"/>
+                            </Style.Resources>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding SelectedCardItemChangedCommand}" CommandParameter="{Binding Path=SelectedItem, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListView}}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Border CornerRadius="10"
+                            Height="225"
+                            Width="160"
+            >
+                                <!--
+                            <Border.RenderTransform>
+                                <ScaleTransform ScaleX="1" ScaleY="1" CenterX="0" CenterY="0"/>
+                            </Border.RenderTransform>
+
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="{Binding Path=ShadowBlurRadius, ElementName=Itemworker}" Direction="{Binding Path=ShadowDirection, ElementName=Itemworker}" Color="{Binding Path=ShadowColor, ElementName=Itemworker}"
+                                                  RenderingBias="Performance"  ShadowDepth="{Binding Path=ShadowDepth, ElementName=Itemworker}"/>
+                            </Border.Effect>
+                        -->
+
+                                <Border.Background>
+                                    <SolidColorBrush Color="#FEFEFE"/>
+                                </Border.Background>
+
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="150"/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+
+                                    <Border x:Name="workerItemBack"
+                                    Panel.ZIndex="1"
+                                    Grid.Row="0"
+                                    Grid.RowSpan="2" 
+                                    Background="Black"
+                                    Opacity="0"
+                                    CornerRadius="10">
+
+                                        <Border.Triggers>
+                                            <EventTrigger RoutedEvent="MouseEnter">
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <DoubleAnimation To="0.3" Duration="0:0:0.3" Storyboard.TargetName="workerItemBack" Storyboard.TargetProperty="Opacity"/>
+                                                        <!-- Back Text
+                                                <DoubleAnimation To="1" Duration="0:0:0.3" Storyboard.TargetName="workerItemBackText" Storyboard.TargetProperty="Opacity"/>
+                                                -->
+                                                        <!-- Shadow
+                                                <DoubleAnimation To="1.1" Duration="0:0:0.25" Storyboard.TargetName="AllPanel" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)"/>
+                                                <DoubleAnimation To="75" Duration="0:0:0.1" Storyboard.TargetName="AllPanel" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.CenterY)"/>
+                                                <DoubleAnimation To="1.1" Duration="0:0:0.25" Storyboard.TargetName="AllPanel" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)"/>
+                                                <DoubleAnimation To="75" Duration="0:0:0.1" Storyboard.TargetName="AllPanel" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.CenterX)"/>
+                                                -->
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </EventTrigger>
+                                            <EventTrigger RoutedEvent="MouseLeave">
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <DoubleAnimation To="0" Duration="0:0:0.2" Storyboard.TargetName="workerItemBack" Storyboard.TargetProperty="Opacity"/>
+                                                        <!-- Back Text
+                                                <DoubleAnimation To="0" Duration="0:0:0.2" Storyboard.TargetName="workerItemBackText" Storyboard.TargetProperty="Opacity"/>
+                                                -->
+                                                        <!-- Shadow
+                                                <DoubleAnimation To="1" Duration="0:0:0.2" Storyboard.TargetName="AllPanel" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)"/>
+                                                <DoubleAnimation To="0" Duration="0:0:0.2" Storyboard.TargetName="AllPanel" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.CenterY)"/>
+                                                <DoubleAnimation To="1" Duration="0:0:0.2" Storyboard.TargetName="AllPanel" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)"/>
+                                                <DoubleAnimation To="0" Duration="0:0:0.2" Storyboard.TargetName="AllPanel" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.CenterX)"/>
+                                                -->
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </EventTrigger>
+                                        </Border.Triggers>
+                                    </Border>
+
+                                    <!--
+                            <TextBlock Name="workerItemBackText"
+                                       Text="{Binding Path=BackText, ElementName=Itemworker}"
+                                       Foreground="White"
+                                       FontSize="16"
+                                       FontWeight="Bold"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Grid.Row="0"
+                                       Grid.RowSpan="2"
+                                       Panel.ZIndex="2"
+                                       Opacity="0">
+                                <TextBlock.Triggers>
+                                    <EventTrigger RoutedEvent="MouseEnter">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation To="0.3" Duration="0:0:0.3" Storyboard.TargetName="workerItemBack" Storyboard.TargetProperty="Opacity"/>
+                                                <DoubleAnimation To="1" Duration="0:0:0.3" Storyboard.TargetName="workerItemBackText" Storyboard.TargetProperty="Opacity"/>
+                                                <DoubleAnimation To="1.1" Duration="0:0:0.15" Storyboard.TargetName="AllPanel" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)"/>
+                                                <DoubleAnimation To="75" Duration="0:0:0.1" Storyboard.TargetName="AllPanel" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.CenterY)"/>
+                                                <DoubleAnimation To="1.1" Duration="0:0:0.15" Storyboard.TargetName="AllPanel" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)"/>
+                                                <DoubleAnimation To="75" Duration="0:0:0.1" Storyboard.TargetName="AllPanel" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.CenterX)"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                </TextBlock.Triggers>
+                            </TextBlock>
+                            -->
+
+                                    <Border Grid.Row="0" CornerRadius="10" Margin="10,10,10,0">
+                                        <Border.Background>
+                                            <ImageBrush Stretch="Fill" ImageSource="{Binding Image}"/>
+                                        </Border.Background>
+                                    </Border>
+
+                                    <StackPanel Grid.Row="1">
+                                        <TextBlock  TextWrapping="Wrap" Text="{Binding FirstName}" Margin="10,10,0,0" FontSize="14" FontWeight="Bold"/>
+                                        <TextBlock TextWrapping="Wrap" Text="{Binding LastName}" Margin="10,3,0,10" FontSize="14" FontWeight="Bold"/>
+                                    </StackPanel>
+                                   
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                </ListView>
+            </Grid>
+
+            <!--WorkerPage-->
+            <Grid Visibility="{Binding AddWorkerVisibility}"
+              Opacity="{Binding OpacityPage}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0"
+                  Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="0">
+                        <TextBlock Text="Ім'я" Style="{StaticResource AddWorkerPage_TextBlock}"/>
+                        <Border Background="White"
+                             VerticalAlignment="Stretch"
+                             CornerRadius="10"
+                             Padding="5,2,5,0"
+                             Width="200"
+                             Height="30"
+                                Margin="0,0,0,0">
+                            <TextBox Text="{Binding FirstName}"/>
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="1">
+                        <TextBlock Text="Прізвище" Style="{StaticResource AddWorkerPage_TextBlock}"/>
+                        <Border Background="White"
+                             VerticalAlignment="Stretch"
+                             CornerRadius="10"
+                             Padding="5,2,5,0"
+                             Width="200"
+                             Height="30"
+                                Margin="0,0,0,0">
+                            <TextBox Text="{Binding LastName}"/>
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="2">
+                        <TextBlock Text="Заробітна плата" Style="{StaticResource AddWorkerPage_TextBlock}"/>
+                        <Border Background="White"
+                             VerticalAlignment="Stretch"
+                             CornerRadius="10"
+                             Padding="5,2,5,0"
+                             Width="200"
+                             Height="30"
+                                Margin="0,0,0,0">
+                            <TextBox Text="{Binding Salary}"/>
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="3">
+                        <TextBlock Text="Освіта" Style="{StaticResource AddWorkerPage_TextBlock}"/>
+                        <Border Background="White"
+                             VerticalAlignment="Stretch"
+                             CornerRadius="10"
+                             Padding="5,2,5,0"
+                             Width="200"
+                             Height="30"
+                                Margin="0,0,0,0">
+                            <TextBox Text="{Binding Education}"/>
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="4">
+                        <TextBlock Text="Стаж" Style="{StaticResource AddWorkerPage_TextBlock}"/>
+                        <Border Background="White"
+                             VerticalAlignment="Stretch"
+                             CornerRadius="10"
+                             Padding="5,2,5,0"
+                             Width="200"
+                             Height="30"
+                                Margin="0,0,0,0">
+                            <TextBox Text="{Binding Seniority}"/>
+                        </Border>
+                    </StackPanel>
+
+                </Grid>
+
+                <Grid Grid.Row="0"
+                  Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="0">
+                        <TextBlock Text="Спеціалізація" Style="{StaticResource AddWorkerPage_TextBlock}"/>
+                        <Border Background="White"
+                             VerticalAlignment="Stretch"
+                             CornerRadius="10"
+                             Padding="5,2,5,0"
+                             Width="200"
+                             Height="30"
+                                Margin="0,0,0,0">
+                            <TextBox Text="{Binding Specialization}"/>
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="1">
+                        <TextBlock Text="Дата народження" Style="{StaticResource AddWorkerPage_TextBlock}"/>
+                        <Border Background="White"
+                             VerticalAlignment="Stretch"
+                             CornerRadius="10"
+                             Padding="5,2,5,0"
+                             Width="200"
+                             Height="30"
+                                Margin="0,0,0,0">
+                            <TextBox Text="{Binding DateOfBirth}"/>
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="2">
+                        <TextBlock Text="Номер телефону" Style="{StaticResource AddWorkerPage_TextBlock}"/>
+                        <Border Background="White"
+                             VerticalAlignment="Stretch"
+                             CornerRadius="10"
+                             Padding="5,2,5,0"
+                             Width="200"
+                             Height="30"
+                                Margin="0,0,0,0">
+                            <TextBox Text="{Binding Phone}"/>
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="3">
+                        <TextBlock Text="Місце проживання" Style="{StaticResource AddWorkerPage_TextBlock}"/>
+                        <Border Background="White"
+                             VerticalAlignment="Stretch"
+                             CornerRadius="10"
+                             Padding="5,2,5,0"
+                             Width="200"
+                             Height="30"
+                                Margin="0,0,0,0">
+                            <TextBox Text="{Binding Recidence}"/>
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="4">
+                        <TextBlock Text="Об'єкт" Style="{StaticResource AddWorkerPage_TextBlock}"/>
+                        <StackPanel>
+                            <local1:FilteredComboBox HorizontalAlignment="Left"
+                                        ItemsSource="{Binding Objects}"
+                                        DisplayMemberPath="Name"
+                                        SelectedItem="{Binding SelectObject, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Width="200"
+                                        Height="30"
+                                                     Padding="5,2,5,0"
+                                                     Margin="5,0,0,0"
+                                        FontWeight="Bold"
+                                        OnlyValuesInList="True">
+                                <local1:FilteredComboBox.ItemContainerStyle>
+                                    <Style TargetType="{x:Type ComboBoxItem}">
+                                        <Setter Property="SnapsToDevicePixels" Value="true" />
+                                        <Setter Property="HorizontalAlignment" Value="Stretch" />
+                                        <Setter Property="VerticalAlignment" Value="Stretch" />
+                                        <Setter Property="FontSize" Value="13" />
+                                        <Setter Property="OverridesDefaultStyle" Value="true"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="ComboBoxItem">
+                                                    <Border Name="Border"
+                                                                Padding="5"
+                                                                Margin="2"
+                                                                BorderThickness="3,0,0,0"
+                                                                CornerRadius="0"
+                                                                Background="Transparent"
+                                                                BorderBrush="Transparent">
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="*"/>
+                                                                <ColumnDefinition Width="30"/>
+                                                            </Grid.ColumnDefinitions>
+
+                                                            <TextBlock x:Name="contentComboBoxItem" Grid.Column="0" TextAlignment="Left">
+                                                            <ContentPresenter/>
+                                                            </TextBlock>
+                                                        </Grid>
+                                                    </Border>
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsHighlighted" Value="true">
+                                                            <Setter TargetName="Border" Property="BorderBrush" Value="LightGreen"/>
+                                                            <Setter TargetName="Border" Property="Background" Value="#AAAAAA"/>
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </local1:FilteredComboBox.ItemContainerStyle>
+                                <local1:FilteredComboBox.Style>
+                                    <Style TargetType="{x:Type ComboBox}">
+                                        <Setter Property="Foreground" Value="Black" />
+                                        <Setter Property="BorderBrush" Value="Gray" />
+                                        <Setter Property="Background" Value="White" />
+                                        <Setter Property="SnapsToDevicePixels" Value="true"/>
+                                        <Setter Property="OverridesDefaultStyle" Value="true"/>
+                                        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+                                        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+                                        <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+                                        <Setter Property="FontSize" Value="13" />
+                                        <Setter Property="MinWidth" Value="180"/>
+                                        <Setter Property="MinHeight" Value="30"/>
+                                        <Setter Property="MaxDropDownHeight" Value="175"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="ComboBox">
+                                                    <Grid>
+                                                        <ToggleButton
+                                                Cursor="Hand"
+                                                Name="ToggleButton"
+                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                Background="{TemplateBinding Background}"
+                                                Foreground="{TemplateBinding Foreground}"
+                                                Style="{StaticResource ComboBoxToggleButton}"
+                                                Grid.Column="2"
+                                                Focusable="false"
+                                                IsChecked="{Binding Path=IsDropDownOpen,Mode=TwoWay,RelativeSource={RelativeSource TemplatedParent}}"
+                                                ClickMode="Press"/>
+                                                        <ContentPresenter
+                                                Name="ContentSite"
+                                                IsHitTestVisible="False"
+                                                Content="{TemplateBinding SelectionBoxItem}"
+                                                ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                                ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                                                Margin="10,3,30,3"
+                                                VerticalAlignment="Center"
+                                                HorizontalAlignment="Left" />
+                                                        <TextBox x:Name="PART_EditableTextBox"
+                                                    Style="{x:Null}"
+                                                    Template="{StaticResource ComboBoxTextBox}"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Center"
+                                                    Margin="3,3,23,3"
+                                                    Focusable="True"                               
+                                                    Visibility="Hidden"
+                                                    IsReadOnly="{TemplateBinding IsReadOnly}"/>
+                                                        <Popup  Name="Popup"
+                                                    Placement="Bottom"
+                                                    IsOpen="{TemplateBinding IsDropDownOpen}"
+                                                    AllowsTransparency="True"
+                                                    Focusable="False"
+                                                    PopupAnimation="Slide">
+                                                            <Grid Name="DropDown"
+                                                      SnapsToDevicePixels="True"               
+                                                      MinWidth="{TemplateBinding ActualWidth}"
+                                                      MaxWidth="{TemplateBinding ActualWidth}"
+                                                      MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                                                <Border CornerRadius="0,0,10,10"
+                                                            x:Name="DropDownBorder"
+                                                            Background="White"
+                                                            BorderThickness="1"
+                                                            BorderBrush="#F6F6F6"/>
+                                                                <Grid>
+                                                                    <Grid.RowDefinitions>
+                                                                        <RowDefinition Height="*"/>
+                                                                        <RowDefinition Height="Auto"/>
+                                                                    </Grid.RowDefinitions>
+
+                                                                    <ScrollViewer Grid.Row="0" Margin="4,6,4,0" SnapsToDevicePixels="True" HorizontalScrollBarVisibility="Disabled">
+                                                                        <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" />
+                                                                    </ScrollViewer>
+                                                                </Grid>
+                                                            </Grid>
+                                                        </Popup>
+
+                                                    </Grid>
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="HasItems" Value="false">
+                                                            <Setter TargetName="DropDownBorder" Property="MinHeight" Value="0"/>
+                                                        </Trigger>
+                                                        <Trigger Property="IsGrouping" Value="true">
+                                                            <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                                                        </Trigger>
+                                                        <Trigger Property="IsEditable" Value="true">
+                                                            <Setter Property="IsTabStop" Value="false"/>
+                                                            <Setter TargetName="PART_EditableTextBox" Property="Visibility" Value="Visible"/>
+                                                            <Setter TargetName="ContentSite" Property="Visibility" Value="Hidden"/>
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </local1:FilteredComboBox.Style>
+                                <local1:FilteredComboBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <VirtualizingStackPanel VirtualizationMode="Recycling"/>
+                                    </ItemsPanelTemplate>
+                                </local1:FilteredComboBox.ItemsPanel>
+                            </local1:FilteredComboBox>
+                        </StackPanel>
+                    </StackPanel>
+
+                </Grid>
+
+                <Grid Grid.Row="1"
+                      Grid.Column="0"
+                      Grid.ColumnSpan="2"
+                     >
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Додаткова інформація"
+                           Grid.Row="0"
+                           Style="{StaticResource AddWorkerPage_TextBlock}"/>
+                    <Border Background="White"
+                             VerticalAlignment="Stretch"
+                             CornerRadius="10"
+                             Padding="5,2,5,0"
+                            Height="250"
+                            Width="420"
+                             Margin="0,20,0,20">
+                        <TextBox Text="{Binding DetailInformation}" TextWrapping="Wrap" AcceptsReturn="True" Margin="0,0,40,20" VerticalScrollBarVisibility="Auto"/>
+                    </Border>
+                </Grid>
+
+                <Grid Grid.Row="0"
+                  Grid.Column="2"
+                  HorizontalAlignment="Left"
+                      Margin="20,0,0,0"
+                  VerticalAlignment="Top">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Фото"
+                           Grid.Row="0"
+                           Style="{StaticResource AddWorkerPage_TextBlock}"/>
+
+                    <!--ImagePanel-->
+                    <Grid Grid.Row="1">
+
+                        <WrapPanel Name ="container" 
+                                   MinHeight="100"
+                                   MinWidth="100"
+                                   Margin="0,0,0,20">
+                            <Image Source="{Binding Image}"
+                                   VerticalAlignment="Stretch" 
+                                   HorizontalAlignment="Stretch"
+                                   Stretch="Uniform"/>
+                            <WrapPanel.OpacityMask>
+                                <VisualBrush >
+                                    <VisualBrush.Visual>
+                                        <Border Height="{Binding ElementName=container, Path=ActualHeight}" 
+                                                Width="{Binding ElementName=container, Path=ActualWidth}"
+                                                Background="White" 
+                                                CornerRadius="20" />
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </WrapPanel.OpacityMask>
+                        </WrapPanel>
+
+                        <!--MouseEnterBackground-->
+                        <Border Opacity="0"
+                            Margin="0,0,0,20"
+                            MinHeight="100"
+                            MinWidth="100"
+                            VerticalAlignment="Stretch"
+                            HorizontalAlignment="Stretch"
+                            CornerRadius="20"
+                            Background="#E8E8E8">
+                            <TextBlock Text="Загрузить фото"
+                                       Foreground="Black"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"/>
+
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="MouseDown">
+                                    <i:InvokeCommandAction Command="{Binding AddImage}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Style.Triggers>
+                                        <EventTrigger RoutedEvent="MouseEnter">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <DoubleAnimation To="0.7" Duration="0:0:0.2" Storyboard.TargetProperty="Opacity"/>
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                        <EventTrigger RoutedEvent="MouseLeave">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <DoubleAnimation To="0" Duration="0:0:0.3" Storyboard.TargetProperty="Opacity"/>
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                        </Border>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="1"
+                  Grid.Column="2"
+                      Margin="20,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="0"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Left">
+                        <TextBlock Text="Документи"                                       
+                               Style="{StaticResource AddWorkerPage_TextBlock}"/>
+
+                        <!--SummaryPanel-->
+                        <Border Background="White"
+                            CornerRadius="10"
+                            Width="110"
+                            Height="70"                        
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top">
+                            <Grid >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Button Grid.Row="0"
+                                Grid.Column="0"
+                                Style="{StaticResource MiniButtonAdd}"/>
+
+                                <Button Grid.Row="1"
+                                Grid.Column="0"
+                                Style="{StaticResource MiniButtonDel}"/>
+
+                                <StackPanel Grid.Column="1"
+                                    Grid.Row="0"
+                                    Grid.RowSpan="2"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                                    <Path Width="46"
+                                  Height="59"
+                                  Stretch="Uniform"
+                                  Fill="Black"
+                                  Data="M 180 25 C 131 41 47 127 32 178 C 14 238 14 4906 32 4966 C 48 5021 131 5104 186 5120 C 218 5129 659 5132 2102 5132 C 4217 5132 4035 5139 4113 5052 C 4137 5026 4162 4986 4168 4964 C 4185 4907 4185 237 4168 180 C 4162 158 4137 118 4113 92 C 4035 5 4219 12 2096 13 C 755 14 205 17 180 25 Z M 3352 374 C 3554 468 3622 725 3495 911 C 3476 939 3460 966 3460 971 C 3460 977 3479 986 3503 993 C 3619 1024 3723 1109 3779 1221 C 3830 1321 3840 1383 3840 1610 C 3840 1812 3840 1813 3815 1837 C 3786 1867 3741 1869 3709 1843 C 3685 1824 3685 1820 3680 1600 C 3675 1387 3673 1374 3649 1322 C 3616 1251 3579 1208 3521 1174 L 3475 1147 L 3228 1144 C 2950 1140 2904 1147 2837 1202 C 2745 1279 2720 1366 2720 1625 C 2720 1811 2720 1813 2695 1837 C 2680 1853 2659 1862 2640 1862 C 2621 1862 2600 1853 2585 1837 C 2560 1813 2560 1813 2560 1598 C 2560 1399 2562 1377 2584 1307 C 2635 1145 2747 1033 2898 993 C 2921 986 2940 976 2940 970 C 2940 964 2928 943 2913 924 C 2790 763 2827 520 2990 407 C 3093 336 3241 322 3352 374 Z M 1696 1060 C 1738 1088 1731 1155 1684 1172 C 1667 1179 1432 1181 1028 1180 L 398 1177 L 378 1153 C 356 1125 360 1085 387 1064 C 400 1055 547 1052 1044 1052 C 1397 1052 1690 1056 1696 1060 Z M 1685 1342 C 1731 1359 1738 1427 1696 1454 C 1679 1466 412 1464 390 1452 C 350 1431 358 1360 403 1342 C 434 1330 1652 1329 1685 1342 Z M 1928 1658 C 1956 1677 1957 1725 1930 1752 C 1910 1772 1897 1772 1160 1772 H 409 L 385 1747 C 355 1718 354 1702 381 1668 L 401 1642 H 1154 C 1818 1642 1908 1644 1928 1658 Z M 4020 3547 V 4923 L 3995 4947 L 3971 4972 H 229 L 205 4947 L 180 4923 V 2172 H 4020 V 3547 Z M 3136 517 C 3056 545 3007 616 3007 702 C 3007 767 3025 807 3074 850 C 3182 944 3353 890 3390 751 C 3417 652 3353 540 3253 513 C 3204 499 3184 500 3136 517 Z M 355 2387 C 339 2402 330 2423 330 2442 C 330 2461 339 2482 355 2497 L 379 2522 H 3801 L 3825 2497 C 3858 2465 3858 2419 3825 2387 L 3801 2362 H 379 L 355 2387 Z M 355 2707 C 339 2722 330 2743 330 2762 C 330 2781 339 2802 355 2817 L 379 2842 H 3801 L 3825 2817 C 3858 2785 3858 2739 3825 2707 L 3801 2682 H 379 L 355 2707 Z M 375 3037 C 359 3052 350 3073 350 3092 C 350 3111 359 3132 375 3147 L 399 3172 H 3821 L 3845 3147 C 3878 3115 3878 3069 3845 3037 L 3821 3012 H 399 L 375 3037 Z M 365 3347 C 349 3362 340 3383 340 3402 C 340 3421 349 3442 365 3457 L 389 3482 H 1411 L 1435 3457 C 1451 3442 1460 3421 1460 3402 C 1460 3383 1451 3362 1435 3347 L 1411 3322 H 389 L 365 3347 Z M 365 3637 C 349 3652 340 3673 340 3692 C 340 3711 349 3732 365 3747 L 389 3772 H 2851 L 2875 3747 C 2908 3715 2908 3669 2875 3637 L 2851 3612 H 389 L 365 3637 Z M 365 3937 C 349 3952 340 3973 340 3992 C 340 4011 349 4032 365 4047 L 389 4072 H 1411 L 1435 4047 C 1451 4032 1460 4011 1460 3992 C 1460 3973 1451 3952 1435 3937 L 1411 3912 H 389 L 365 3937 Z M 2576 4351 C 2553 4377 2552 4447 2575 4472 C 2593 4491 2610 4492 3215 4492 C 3920 4492 3870 4498 3870 4410 C 3870 4327 3915 4332 3213 4332 C 2617 4332 2592 4333 2576 4351 Z M 2765 4677 C 2749 4692 2740 4713 2740 4732 C 2740 4751 2749 4772 2765 4787 L 2789 4812 H 3811 L 3835 4787 C 3851 4772 3860 4751 3860 4732 C 3860 4713 3851 4692 3835 4677 L 3811 4652 H 2789 L 2765 4677 Z">
+                                    </Path>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </StackPanel>
+
+
+                    <StackPanel Grid.Row="1"
+                                
+                            VerticalAlignment="Bottom">
+                        <Border Visibility="{Binding BtnCreateVisibility}">
+                            <Button Content="Створити"
+                            Width="160"
+                            Style="{StaticResource ButtonPageObject}" Command="{Binding CreateWorker}">
+                            </Button>
+                        </Border>
+
+                        <Border Visibility="{Binding BtnSaveVisibility}">
+                            <Button Content="Зберегти" 
+                            Width="160"
+                            Style="{StaticResource ButtonPageObject}" Command="{Binding Save}">
+                            </Button>
+                        </Border>
+
+                        <Border Visibility="{Binding BtnSaveVisibility}">
+                            <Button Content="Видалити" 
+                            Width="160"
+                            Style="{StaticResource ButtonPageObject}" Command="{Binding Delete}">
+                            </Button>
+                        </Border>
+
+                    </StackPanel>
+
+                </Grid>
+
+            </Grid>
+
+        </Grid>
+    </Grid>
+</Page>

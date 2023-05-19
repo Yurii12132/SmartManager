@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush Color="Transparent"    x:Key="Menu_Control_Buttons_Background"/>
+    <SolidColorBrush Color="#B1B0B0"      x:Key="Menu_Control_Buttons_BackgroundMouseOver"/>
+    <SolidColorBrush Color="#FF9E9E"      x:Key="Menu_Control_Buttons_BackgroundMouseCaptured"/>
+    <SolidColorBrush Color="White"      x:Key="Menu_Control_Buttons_PathFill"/>
+    
+</ResourceDictionary>

@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "SmartManagerServer.Worker": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DEV_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

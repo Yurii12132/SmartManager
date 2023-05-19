@@ -1,0 +1,110 @@
+﻿<Page x:Class="ManagementWPF.Views.Pages.CloseObjectsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ManagementWPF.Views.Pages" xmlns:viewmodels="clr-namespace:ManagementWPF.ViewModels" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      mc:Ignorable="d"
+      d:DesignHeight="450" d:DesignWidth="800"
+      d:DataContext="{d:DesignInstance Type=viewmodels:CloseObjectViewModel}"
+      Title="CloseObjectsPage">
+
+    <Page.DataContext>
+        <viewmodels:CloseObjectViewModel/>
+    </Page.DataContext>
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding OnLoaded}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="Закриті об'єкти" Foreground="White" FontSize="16" FontWeight="Black" Margin="10"/>
+        <Grid Grid.Row="1">
+            <ListView
+                    SelectionMode="Single"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                  Background="Transparent"
+                  BorderBrush="Transparent"
+                  HorizontalContentAlignment="Stretch"
+                  ItemsSource="{Binding Objects}"
+                  >
+
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="BorderThickness" Value="0"/>
+                        <Setter Property="Margin" Value="10"/>
+                        <Setter Property="Padding" Value="0"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True" >
+                                <Setter Property="Background" Value="Transparent" />
+                            </Trigger>
+                        </Style.Triggers>
+                        <Style.Resources>
+                            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent"/>
+                        </Style.Resources>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border CornerRadius="10"
+                            Height="180"
+                            Width="230"
+            >
+
+                            <Border.Background>
+                                <SolidColorBrush Color="#FEFEFE"/>
+                            </Border.Background>
+
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="35"/>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition Height="55"/>
+                                </Grid.RowDefinitions>
+
+                                <Border Grid.Row="0" CornerRadius="10" Margin="10,10,10,0">
+                                    <TextBlock Text="{Binding Name}" HorizontalAlignment="Center"/>
+                                </Border>
+
+                                <TextBlock Grid.Row="1" TextWrapping="Wrap" HorizontalAlignment="Center" Text="{Binding DatePeriod}" Margin="10" FontSize="14" FontWeight="Bold"/>
+
+                                <Border Grid.Row="2" Padding="10,0,10,0">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <StackPanel Orientation="Horizontal" Grid.Row="0">
+                                            <TextBlock Text="Вартість: "/>
+                                            <TextBlock Text="{Binding Payout}"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal" Grid.Row="1">
+                                            <TextBlock Text="Витрати: "/>
+                                            <TextBlock Text="{Binding Outlay}"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal" Grid.Row="2">
+                                            <TextBlock Text="Дохід: "/>
+                                            <TextBlock Text="{Binding Income}"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </Border>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+            </ListView>
+        </Grid>
+    </Grid>
+</Page>

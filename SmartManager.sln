@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartManager", "ManagementWPF\SmartManager.csproj", "{CE7EC791-3E7A-4FEA-8677-48976994BE0F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE7EC791-3E7A-4FEA-8677-48976994BE0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE7EC791-3E7A-4FEA-8677-48976994BE0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE7EC791-3E7A-4FEA-8677-48976994BE0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE7EC791-3E7A-4FEA-8677-48976994BE0F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3C0B5F4E-B7C3-481A-9374-DCBDE3F3D545}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,459 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ManagementWPF.App" Collapsed="true">
+    <Position X="13" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementWPF.RelayCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAACAAQAAEAEAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RelayCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ManagementWPF.DelegateCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAQAAEAEAAJAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\DelegateCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ManagementWPF.ConvertersValue.ConverterBrushToColor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ConvertersValue\ConverterBrushToColor.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ManagementWPF.ConvertersValue.ConverterToDouble" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ConvertersValue\ConverterToDouble.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ManagementWPF.CustomControl.FilteredComboBox" Collapsed="true">
+    <Position X="16.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAACQAAAwAAABAkICKABAwAAAAEAAAAAIIAgQ=</HashCode>
+      <FileName>CustomControl\FilteredComboBox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementWPF.CustomControl.PathButton" Collapsed="true">
+    <Position X="18.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAAAAFAAAAAAAAAgAAA=</HashCode>
+      <FileName>CustomControl\PathButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementWPF.Environments.Environment" Collapsed="true">
+    <Position X="13" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Environments\Environment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementWPF.Models.ChartCloseObjectModel" Collapsed="true">
+    <Position X="16.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ChartCloseObjectModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementWPF.Models.CloseObjectModel" Collapsed="true">
+    <Position X="18.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAACAAAAAAAgAAAAAAAAAQAAAACAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Models\CloseObjectModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementWPF.Models.EmployeeModel" Collapsed="true">
+    <Position X="20" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAGgAAAAAAIAAAAAAAAAAAAAQQBAAAgAoIAggAkg=</HashCode>
+      <FileName>Models\EmployeeModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementWPF.Models.EmployeeObjectModel" Collapsed="true">
+    <Position X="9.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAQAAAAAAAAAAAABIAAAAAA=</HashCode>
+      <FileName>Models\EmployeeObjectModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementWPF.Models.FileModel" Collapsed="true">
+    <Position X="14.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Models\FileModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementWPF.Models.ObjectInformationModel" Collapsed="true">
+    <Position X="9.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQACAAAABACAAAAAAEAAgA=</HashCode>
+      <FileName>Models\ObjectInformationModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementWPF.Models.ObjectModel" Collapsed="true">
+    <Position X="11.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAEAAAAAAAAAABAAAAAgA=</HashCode>
+      <FileName>Models\ObjectModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementWPF.Models.OutlayEmployeeModel" Collapsed="true">
+    <Position X="20" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAIAAAAAQAAAAAAQAAAAAAAAAAAAAABAAAAAAACAgA=</HashCode>
+      <FileName>Models\OutlayEmployeeModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementWPF.Models.OutlayEmployeeOutputModel" Collapsed="true">
+    <Position X="9.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAIAAAAAQAAAAAAAAAAAAAAAAAAAAABAAAAAAACAwA=</HashCode>
+      <FileName>Models\OutlayEmployeeOutputModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementWPF.Models.OutlayMaterialModel" Collapsed="true">
+    <Position X="13" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAQAAAAAAAAAAAAQAAAAAAAABAAAAAAAAAgA=</HashCode>
+      <FileName>Models\OutlayMaterialModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementWPF.Models.PayoutInputModel" Collapsed="true">
+    <Position X="9.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAQAAAAEAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Models\PayoutInputModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementWPF.Models.PayoutModel" Collapsed="true">
+    <Position X="11.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAQAAAAAAAAAAAAQAAAAAAAABAAAAAAIAAgA=</HashCode>
+      <FileName>Models\PayoutModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementWPF.Properties.Resources" Collapsed="true">
+    <Position X="20" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementWPF.Properties.Settings" Collapsed="true">
+    <Position X="9.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementWPF.Services.DialogService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAgAAAAg=</HashCode>
+      <FileName>Services\DialogService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ManagementWPF.Services.EmployeeService" Collapsed="true">
+    <Position X="11.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAAAAACAAAAEAAEAAAgAAIAAAAAA=</HashCode>
+      <FileName>Services\EmployeeService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementWPF.Services.ObjectService" Collapsed="true">
+    <Position X="14.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAEAAAAQAAEAAEAAAAAAIACAAAA=</HashCode>
+      <FileName>Services\ObjectService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementWPF.Services.OutlayEmployeeService" Collapsed="true">
+    <Position X="11.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAEQAEAAAAAAIAAAAAA=</HashCode>
+      <FileName>Services\OutlayEmployeeService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementWPF.Services.OutlayMaterialService" Collapsed="true">
+    <Position X="14.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAEAAEAAAAAAIAAAAAA=</HashCode>
+      <FileName>Services\OutlayMaterialService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementWPF.Services.PayoutService" Collapsed="true">
+    <Position X="14.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAEAAEAAAAAAIAAAAAA=</HashCode>
+      <FileName>Services\PayoutService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementWPF.Services.SharedValuesService" Collapsed="true">
+    <Position X="13" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\SharedValuesService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementWPF.UserControls.CustomComboBox" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UserControls\CustomComboBox.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ManagementWPF.ViewModels.BaseViewModel" Collapsed="true">
+    <Position X="14" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\BaseViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ManagementWPF.ViewModels.CloseObjectViewModel" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAQAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\CloseObjectViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementWPF.ViewModels.MainPageViewModel" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAQAAAAAAAAgAAAAIAAAIAAQBCAAE=</HashCode>
+      <FileName>ViewModels\MainPageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementWPF.ViewModels.MainWindowViewModel" Collapsed="true">
+    <Position X="9.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAgAAhAAEAAAAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\MainWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementWPF.ViewModels.ObjectPageViewModel" Collapsed="true">
+    <Position X="14" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SQAAAAAAAQAAAAQAAAAIAAAACAAAAgGAAAAAAgAAgAQ=</HashCode>
+      <FileName>ViewModels\ObjectPageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementWPF.ViewModels.OutlayPageViewModel" Collapsed="true">
+    <Position X="18.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ApAAAEAAAQBAAAAAQRAAAIAAQADAAAQABEAAAIAAgAg=</HashCode>
+      <FileName>ViewModels\OutlayPageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementWPF.ViewModels.PayoutPageViewModel" Collapsed="true">
+    <Position X="23" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAIAAAAAAQAQAQRAAABAAAQBAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\PayoutPageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementWPF.ViewModels.ReportViewModel" Collapsed="true">
+    <Position X="27.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAEAAAABQQAAAAEAAABCAAAAAgAAAQEAAAE=</HashCode>
+      <FileName>ViewModels\ReportViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementWPF.ViewModels.StaticContollPages" Collapsed="true">
+    <Position X="14.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>UAAABAAQgAAAAAQEAAMAABAAAAAgAAAAAABBAEaAAAI=</HashCode>
+      <FileName>ViewModels\StaticContollPages.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementWPF.ViewModels.WorkersPageViewModel" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EiAAAOgBQAFqAAAEQwAQAEAAUYEQADEhCCApKASiAkg=</HashCode>
+      <FileName>ViewModels\WorkersPageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementWPF.ViewModels.Dialogs.AddMoneyDialogViewModel" Collapsed="true">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAIAAAAAEAAAAAAACAAAA=</HashCode>
+      <FileName>ViewModels\Dialogs\AddMoneyDialogViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementWPF.ViewModels.Dialogs.AddObjectDialogViewModel" Collapsed="true">
+    <Position X="11.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAACAAAIAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Dialogs\AddObjectDialogViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementWPF.ViewModels.Dialogs.AddPayoutObjectViewModel" Collapsed="true">
+    <Position X="16.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABABAAAQAAAAACQAAAAAQAIAAEAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Dialogs\AddPayoutObjectViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementWPF.ViewModels.Dialogs.OutlayAddMaterialViewModel" Collapsed="true">
+    <Position X="20.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAABABAAAQAAAAAAQAAAAAQAIAAEAAAAEAAAAAwAAAA=</HashCode>
+      <FileName>ViewModels\Dialogs\OutlayAddMaterialViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementWPF.ViewModels.Dialogs.OutlayAddWorkerViewModel" Collapsed="true">
+    <Position X="25.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAACAAAAAAAAAEAAQgQAAABQIQAAAIAAABCgIACAAAA=</HashCode>
+      <FileName>ViewModels\Dialogs\OutlayAddWorkerViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementWPF.Views.Dialogs.AddMoneyDialog" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Dialogs\AddMoneyDialog.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ManagementWPF.Views.Dialogs.AddObjectDialog" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Dialogs\AddObjectDialog.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ManagementWPF.Views.Dialogs.ConfirmDialog" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAYAAAAAAAhBAAAAgAAAgEAAAAAAAAAEAAAEA=</HashCode>
+      <FileName>Views\Dialogs\ConfirmDialog.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ManagementWPF.Views.Dialogs.OutlayAddMaterialDialog" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Dialogs\OutlayAddMaterialDialog.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ManagementWPF.Views.Dialogs.OutlayAddWorkerDialog" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Dialogs\OutlayAddWorkerDialog.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ManagementWPF.Views.Dialogs.PayoutAddDialog" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Dialogs\PayoutAddDialog.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ManagementWPF.Views.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAgAAAAIAAAAAAAARAAACIA=</HashCode>
+      <FileName>Views\MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ManagementWPF.Views.Pages.CalculationPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Pages\CalculationPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ManagementWPF.Views.Pages.CloseObjectsPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Pages\CloseObjectsPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ManagementWPF.Views.Pages.MainPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Pages\MainPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ManagementWPF.Views.Pages.SettingsPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Pages\SettingsPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ManagementWPF.Views.Pages.WorkersPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Pages\WorkersPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ManagementWPF.Views.Pages.ObjectPages.ObjectPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Pages\ObjectPages\ObjectPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ManagementWPF.Views.Pages.ObjectPages.OutlayPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Pages\ObjectPages\OutlayPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ManagementWPF.Views.Pages.ObjectPages.PayoutPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Pages\ObjectPages\PayoutPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ManagementWPF.Views.Pages.ObjectPages.ReportPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Pages\ObjectPages\ReportPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="ManagementWPF.Common.Services.IDialogService" Collapsed="true">
+    <Position X="9.5" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Services\IDialogService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

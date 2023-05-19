@@ -1,0 +1,169 @@
+﻿<Page x:Class="ManagementWPF.Views.Pages.ObjectPages.ReportPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ManagementWPF.Views.Pages.ObjectPages" xmlns:viewmodels="clr-namespace:ManagementWPF.ViewModels" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      mc:Ignorable="d"
+      d:DesignHeight="450" d:DesignWidth="800"
+      d:DataContext="{d:DesignInstance Type=viewmodels:ReportViewModel}"
+      Title="ReportPage">
+
+    <Page.DataContext>
+        <viewmodels:ReportViewModel/>
+    </Page.DataContext>
+
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding OnLoaded}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <Grid>
+        <Border Padding="10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <!--Button BackPage-->
+                <Border Grid.Row="0"
+                    Width="30"
+                    Height="30"
+                    HorizontalAlignment="Left"
+                    CornerRadius="50"
+                    Background="Transparent"
+                    Cursor="Hand">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseDown">
+                            <i:InvokeCommandAction Command="{Binding BackPage}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <Path Grid.Row="0"
+                  Name="buttonBackPage"
+                  Data="M2,12A10,10 0 0,1 12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12M18,11H10L13.5,7.5L12.08,6.08L6.16,12L12.08,17.92L13.5,16.5L10,13H18V11Z"
+                  Fill="AliceBlue"
+                  Stretch="Fill">
+                    </Path>
+                    <Border.Triggers>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="#31A3ED" Duration="0:0:0.20" Storyboard.TargetName="buttonBackPage" Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Color)"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="White" Duration="0:0:0.15" Storyboard.TargetName="buttonBackPage" Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Color)"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Border.Triggers>
+                </Border>
+
+                <!--Page-->
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Row="0" Grid.Column="0">
+                        <TextBlock Text="Вартість об'єкта" Style="{StaticResource AddWorkerPage_TextBlock}"/>
+                        <Border Background="White"
+                             VerticalAlignment="Stretch"
+                             CornerRadius="10"
+                             Padding="5,2,5,0"
+                             Width="200"
+                             Height="30"
+                                Margin="-250,0,0,0">
+                            <TextBox Text="{Binding PayoutObject}"/>
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="1" Grid.Column="0">
+                        <TextBlock Text="Витрати на матеріал" Style="{StaticResource AddWorkerPage_TextBlock}"/>
+                        <Border Background="White"
+                             CornerRadius="10"
+                             Padding="5,2,5,0"
+                             Width="200"
+                             Height="30"
+                               Margin="-250,0,0,0">
+                            <TextBox Text="{Binding OutlayEmployee}"/>
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="2" Grid.Column="0">
+                        <TextBlock Text="Витрати на працівників" Style="{StaticResource AddWorkerPage_TextBlock}"/>
+                        <Border Background="White"
+                             CornerRadius="10"
+                             Padding="5,2,5,0"
+                             Width="200"
+                             Height="30"
+                               Margin="-250,0,0,0">
+                            <TextBox Text="{Binding OutlayEmployee}"/>
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="4" Grid.Column="0" Orientation="Vertical">
+                        <TextBlock Text="Дохід" Style="{StaticResource AddWorkerPage_TextBlock}"/>
+                        <Border Background="White"
+                             VerticalAlignment="Stretch"
+                             CornerRadius="10"
+                             Padding="5,2,5,0"
+                             Width="200"
+                             Height="30"
+                                Margin="-250,0,0,0">
+                            <TextBox Text="{Binding Income}"/>
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="6" Grid.Column="0" Orientation="Vertical">
+                        <Border x:Name="printBtn" Background="Transparent"
+                             VerticalAlignment="Stretch"
+                             CornerRadius="10"
+                             Padding="5,2,5,0"
+                                Width="50"
+                             Height="50"
+                                Margin="-400,0,0,0">
+
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="MouseDown">
+                                    <i:InvokeCommandAction Command="{Binding GenerateExcel}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+
+                            <Image Source="/Images/iconPrint.png" HorizontalAlignment="Left"/>
+                        </Border>
+                    </StackPanel>
+
+
+
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.RowSpan="4" Grid.Column="1">
+                        <TextBlock Text="Кількість працівників на підприємстві" Margin="0,0,0,20" FontSize="20" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Image Source="/Images/mainWorkers.png" Height="100"/>
+                            <Border Height="70">
+                                <TextBlock Text="{Binding CountWorkers}" Margin="20" FontSize="24" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Border>
+                        </StackPanel>
+                    </StackPanel>
+
+
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>
